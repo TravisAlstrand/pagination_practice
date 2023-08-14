@@ -29,9 +29,16 @@ body .wrapper {
   max-width: 1440px;
 }
 
+h1,
+.author-container .author-card .card-content h1.title,
+.pagination-list button {
+  color: #262c38;
+}
+
 header,
 .author-container,
-.author-container .author-card .card-header {
+.author-container .author-card .card-header,
+.pagination-list {
   display: flex;
 }
 
@@ -52,6 +59,22 @@ header,
   overflow: hidden;
 }
 
+.author-container .author-card,
+.pagination-list button {
+  cursor: pointer;
+}
+
+.author-container .author-card:hover .card-header img,
+.pagination-list button {
+  transition: transform 0.4s ease-out, filter 0.1s ease-in;
+}
+
+.author-container .author-card:hover .card-header img,
+.pagination-list button:hover {
+  transform: translateY(5px) scale(1.1);
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+}
+
 /* --- */
 
 header {
@@ -59,6 +82,10 @@ header {
   position: fixed;
   top: 0;
   z-index: 10000;
+}
+
+h1 {
+  color: #f5f5f5;
 }
 
 .input-container {
@@ -94,7 +121,6 @@ header {
   background-color: #f5f5f5;
   border-radius: 1rem;
   flex: 1 0 300px;
-  cursor: pointer;
   transition: transform 0.4s ease-out;
 }
 
@@ -109,19 +135,12 @@ header {
 }
 
 .author-container .author-card .card-header img {
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0));
   transition: transform 0.4s ease-out, filter 0.1s ease-in;
   max-width: 85px;
 }
 
-.author-container .author-card:hover .card-header img {
-  transform: translateY(5px) scale(1.1);
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
-}
-
 .author-container .author-card .card-content h1.title {
   font-size: 1.2rem;
-  color: #262c38;
 }
 
 .author-container .author-card .card-content p {
@@ -131,6 +150,24 @@ header {
   -webkit-line-clamp: 10;
   font-size: 0.9rem;
   color: #323846;
+}
+
+.pagination-list {
+  justify-content: space-evenly;
+  max-width: 450px;
+  margin: 0 auto 2rem;
+  list-style: none;
+}
+
+.pagination-list button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid #262c38;
+}
+
+.active {
+  background-color: #f59797;
 }
 
 @media (min-width: 500px) {
