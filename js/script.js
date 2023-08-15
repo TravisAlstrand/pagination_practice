@@ -5,6 +5,9 @@ const paginationList = document.querySelector("#paginationList");
 // console.log(authors);
 const authorsPerPage = 3;
 
+/* This function will handle calculating how many buttons are
+needed and dynamically add them to the page */
+
 function handlePagination(array) {
   const numberOfPages = Math.ceil(array.length / authorsPerPage);
 
@@ -17,6 +20,9 @@ function handlePagination(array) {
     paginationList.insertAdjacentHTML("beforeend", html);
   }
 }
+
+/* This function will handle calculating how many and which
+authors to show on the current page and dynamically add them */
 
 function showPage(array, page) {
   const start = page * authorsPerPage - authorsPerPage;
@@ -42,6 +48,9 @@ function showPage(array, page) {
   }
 }
 
+/* This function will handle adding and removing
+the active class from the correct buttons */
+
 function handleActiveClass(button) {
   if (!button) {
     button = document.querySelector("button");
@@ -53,6 +62,9 @@ function handleActiveClass(button) {
   }
 }
 
+/* This event listener will handle calling our
+functions above to change the page & active button  */
+
 paginationList.addEventListener("click", (e) => {
   const buttonClicked = e.target.closest("button");
 
@@ -61,6 +73,8 @@ paginationList.addEventListener("click", (e) => {
     handleActiveClass(buttonClicked);
   }
 });
+
+/* These function calls are needed to initialize the page */
 
 handlePagination(authors);
 showPage(authors, 1);
