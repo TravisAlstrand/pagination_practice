@@ -1,7 +1,6 @@
 // ELEMENT SELECTORS
 const authorContainer = document.querySelector("#authorContainer");
 const paginationList = document.querySelector("#paginationList");
-let activeButton = document.querySelector(".active");
 
 // console.log(authors);
 const authorsPerPage = 3;
@@ -16,11 +15,6 @@ function handlePagination(array) {
       </li>
     `;
     paginationList.insertAdjacentHTML("beforeend", html);
-  }
-
-  if (!activeButton) {
-    activeButton = document.querySelector("button");
-    activeButton.classList.add("active");
   }
 }
 
@@ -48,16 +42,26 @@ function showPage(array, page) {
   }
 }
 
+function handleActiveClass(button) {
+  if (!button) {
+    button = document.querySelector("button");
+    button.classList.add("active");
+  } else {
+    const activeButton = document.querySelector(".active");
+    activeButton.classList.remove("active");
+    button.classList.add("active");
+  }
+}
+
 paginationList.addEventListener("click", (e) => {
   const buttonClicked = e.target.closest("button");
 
   if (buttonClicked) {
-    activeButton.classList.remove("active");
-    activeButton = buttonClicked;
-    activeButton.classList.add("active");
-    showPage(authors, activeButton.innerHTML);
+    showPage(authors, buttonClicked.innerHTML);
+    handleActiveClass(buttonClicked);
   }
 });
 
 handlePagination(authors);
 showPage(authors, 1);
+handleActiveClass(null);
