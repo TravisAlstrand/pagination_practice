@@ -56,11 +56,11 @@ function showPage(array, page) {
       const html = `
         <div class="author-card">
           <div class="card-header">
-            <img src="${authors[i].image}" alt="photo of ${authors[i].name}" />
+            <img src="${array[i].image}" alt="photo of ${array[i].name}" />
           </div>
           <div class="card-content">
-            <h2 class="title">${authors[i].name}</h2>
-            <p>${authors[i].text}</p>
+            <h2 class="title">${array[i].name}</h2>
+            <p>${array[i].text}</p>
           </div>
         </div>
       `;
