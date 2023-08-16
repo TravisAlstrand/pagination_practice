@@ -70,47 +70,34 @@ function showPage(array, page) {
   }
 }
 
-/* This function will handle adding and removing
-the active class from the correct buttons */
-
-function handleActiveClass(button) {
-  // 7-a. Create a conditional checking if a button was passed as an argument
-  //      Hint: not null
-  // 7-b. If true...
-  //      - Select the button that currently has the `active` class and remove that class from it.
-  //      - Add the `active` class to the button passed in.
-  //      If false...
-  //      - Select the first button on the page and add the `active` class to it
-  //      Hint: querySelector()
-  if (button) {
-    const activeButton = document.querySelector(".active");
-    activeButton.classList.remove("active");
-    button.classList.add("active");
-  } else {
-    button = document.querySelector("button");
-    button.classList.add("active");
-  }
-}
-
 /* This event listener will handle calling our
-functions above to change the page & active button  */
+function above to change the page & add the `active` class  */
 
 paginationList.addEventListener("click", (e) => {
+  // 7. Create a variable to store the button which currently has the `active` class
+  const activeButton = paginationList.querySelector(".active");
   // 8-a. Make sure the user has clicked a `button`
   //      Hint: e.target
   // 8-b. If true...
-  //      - Call the showPage() passing `authors` and the content of the button just clicked.
-  //      - Call the handleActiveClass() passing the button just clicked.
+  //      - Remove the `active` class from the currently active button
+  //      - Add the `active` class to the button just clicked
+  //      - Call showPage() passing it `authors` and the content of the button just clicked.
   const buttonClicked = e.target.closest("button");
 
+  // if (activeButton && buttonClicked) {
+  //   activeButton.classList.remove("active");
+  // }
+
   if (buttonClicked) {
+    activeButton.classList.remove("active");
+    buttonClicked.classList.add("active");
     showPage(authors, buttonClicked.innerHTML);
-    handleActiveClass(buttonClicked);
   }
 });
 
-/* These function calls are needed to initialize the page */
+/* These function calls are needed to initialize the page 
+and add the `active class` to the first button */
 
 handlePagination(authors);
 showPage(authors, 1);
-handleActiveClass(null);
+paginationList.querySelector("button").classList.add("active");
