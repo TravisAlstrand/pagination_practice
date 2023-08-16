@@ -70,8 +70,8 @@ function showPage(array, page) {
   }
 }
 
-/* This event listener will handle calling our
-function above to change the page & add the `active` class  */
+/* This event listener will handle calling our function
+above to change the page & add the `active` class  */
 
 paginationList.addEventListener("click", (e) => {
   // 7. Create a variable to store the button which currently has the `active` class
