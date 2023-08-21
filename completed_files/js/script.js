@@ -87,10 +87,6 @@ paginationList.addEventListener("click", (e) => {
   //      - Call showPage() passing it `authors` and the content of the button just clicked.
   const buttonClicked = e.target.closest("button");
 
-  // if (activeButton && buttonClicked) {
-  //   activeButton.classList.remove("active");
-  // }
-
   if (buttonClicked) {
     activeButton.classList.remove("active");
     buttonClicked.classList.add("active");
