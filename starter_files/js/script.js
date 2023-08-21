@@ -10,7 +10,7 @@ needed and dynamically add them to the page */
 
 function handlePagination(array) {
   // 1. Create a variable to store the number of buttons needed.
-  //    The math should be (the length of the array divided by the authorsPerPage) rounded up ????
+  //    The math should be (the length of the array divided by the authorsPerPage) rounded up
   //    Hint: Math.ceil()
   // 2-a. Start a loop to the length of the number of buttons calculated above.
   // 2-b. Inside, create a variable storing a template literal of the HTML markup of a button
@@ -26,9 +26,9 @@ authors to show on the current page and dynamically add them */
 
 function showPage(array, page) {
   // 4. Create a variable to represent which author to start with on the page.
-  //    The math should be (the page multiplied by the authorsPerPage) minus the authorsPerPage ????
+  //    The math should be (the page multiplied by the authorsPerPage) minus the authorsPerPage
   // 5. Create a variable to represent which author to end with on the page.
-  //    The math should be (the page multiplied by the authorsPerPage) minus one ????
+  //    The math should be (the page multiplied by the authorsPerPage) minus one
   // 6. Reset the authorContainer's content to nothing to prevent previous cards staying on the page
   // 7-a. Start a loop to the length of the array's length
   // 7-b. Inside, create a conditional checking if `i` is...
